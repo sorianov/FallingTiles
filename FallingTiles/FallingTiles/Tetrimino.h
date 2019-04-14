@@ -18,6 +18,7 @@ public:
 private:
 	void setTetrimino(char type);
 	void initializeTetrimino(int arr[][MAX_COLS]);
+  int wrapIndex(int index, int steps, int maxRows, int maxCols);
 	int* tetrimino;
 
 };

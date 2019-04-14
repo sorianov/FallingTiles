@@ -12,11 +12,23 @@ Tetrimino::Tetrimino() {
 	this->setTetrimino('i');
 }
 
-void rotateLeft() {
+void Tetrimino::rotateLeft() {
+  int index = 0;
+  int swapIndex = 0;
+  int swapValue = 0;
+  for (int i = 0; i < MAX_ROWS; i++) {
+    for (int j = 0; j < MAX_COLS; j++) {
+      index = i * MAX_COLS + j;
+      swapIndex = this->wrapIndex(index, 3, MAX_ROWS, MAX_COLS);
+      swapValue = this->tetrimino[swapIndex];
+      this->tetrimino[swapIndex] = this->tetrimino[index];
+      this->tetrimino[index] = swapValue;
+    }
+  }
 	return;
 }
 
-void rotateRight() {
+void Tetrimino::rotateRight() {
 	return;
 }
 
@@ -90,4 +102,15 @@ void Tetrimino::printTetrimino() {
 		}
 		std::cout << std::endl;
 	}
+}
+
+int Tetrimino::wrapIndex(int index, int steps, int maxRows, int maxCols) {
+  int wrapAt = maxRows * maxCols - 1;
+  if (steps == 0) {
+    return index;
+  }
+  if (index > wrapAt) {
+    return this->wrapIndex(0, steps - 1, maxRows, maxCols);
+  }
+  return this->wrapIndex(index + 1, steps - 3, maxRows, maxCols);
 }
