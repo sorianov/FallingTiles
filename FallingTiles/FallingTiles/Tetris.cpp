@@ -13,10 +13,10 @@ int main() {
 	Tetrimino t = Tetrimino('z');
 	t.printTetrimino();
   std::cout << std::endl;
-  t.rotateLeft();
+  t.rotateRight();
   t.printTetrimino();
   std::cout << std::endl;
-  t.rotateLeft();
+  t.rotateRight();
   t.printTetrimino();
   std::cout << std::endl;
 	return 0;

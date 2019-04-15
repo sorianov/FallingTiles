@@ -29,6 +29,36 @@ void Tetrimino::rotateLeft() {
 }
 
 void Tetrimino::rotateRight() {
+  int currRow = 0;
+  int currCol = 0;
+  int newRow = 0;
+  int newCol = 0;
+  int newIndex = 2;
+  int *rotateTetrimino = new int[MAX_ROWS * MAX_COLS];
+  int count = 0;
+  for (int i = 0; i < MAX_ROWS; i++) {
+    for (int j = 0; j < MAX_COLS; j++) {
+      currRow = i * MAX_ROWS;
+      currCol = j;
+      
+      if (currRow == 0) {
+        newCol = MAX_COLS - 1;
+        newRow = j;
+        newIndex = newRow * MAX_ROWS + newCol;
+      } else {
+        newCol = abs((MAX_COLS - 1) - currRow);
+        newRow = j;
+        newIndex = newRow * MAX_ROWS + newCol;
+      }
+      
+      rotateTetrimino[newIndex] = this->tetrimino[currRow + currCol];
+      //std::cout << newIndex << std::endl;
+      //rotateTetrimino[newIndex] = count;
+      count++;
+    }
+  }
+  delete [] this->tetrimino;
+  this->tetrimino = rotateTetrimino;
 	return;
 }
 

@@ -3,6 +3,7 @@
 #endif
 
 #include <iostream>
+#include <cmath>
 
 const int MAX_ROWS = 4;
 const int MAX_COLS = 4;
