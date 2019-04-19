@@ -3,8 +3,6 @@
 #endif
 
 #include <iostream>
-#include <cmath>
-#include <cstdio>
 
 const int MAX_ROWS = 4;
 const int MAX_COLS = 4;
@@ -18,6 +16,7 @@ public:
 	void rotateRight();
 	void printTetrimino();
 private:
+    void rotate(char direction);
 	void setTetrimino(char type);
 	void initializeTetrimino(int arr[][MAX_COLS]);
 	int* tetrimino;
