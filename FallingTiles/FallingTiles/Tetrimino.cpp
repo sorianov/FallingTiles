@@ -13,18 +13,30 @@ Tetrimino::Tetrimino() {
 }
 
 void Tetrimino::rotateLeft() {
-  int index = 0;
-  int swapIndex = 0;
-  int swapValue = 0;
+  int maxRowsIndex = MAX_ROWS - 1;
+  int currRow = 0;
+  int currCol = 0;
+  int currIndex = 0;
+  int newRow = 0;
+  int newCol = 0;
+  int newIndex = 0;
+  int *rotateTetrimino = new int[MAX_ROWS * MAX_COLS];
+  
   for (int i = 0; i < MAX_ROWS; i++) {
     for (int j = 0; j < MAX_COLS; j++) {
-      index = i * MAX_COLS + j;
-      swapIndex = this->wrapIndex(index, 3, MAX_ROWS, MAX_COLS);
-      swapValue = this->tetrimino[swapIndex];
-      this->tetrimino[swapIndex] = this->tetrimino[index];
-      this->tetrimino[index] = swapValue;
+      currRow = i * MAX_ROWS;
+      currCol = j;
+      currIndex = currRow + currCol;
+
+      newCol = i;
+      newRow = maxRowsIndex - j;
+      newIndex = newRow * MAX_ROWS + newCol;
+      
+      rotateTetrimino[newIndex] = this->tetrimino[currIndex];
     }
   }
+  delete [] this->tetrimino;
+  this->tetrimino = rotateTetrimino;
 	return;
 }
 
