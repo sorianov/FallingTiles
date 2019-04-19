@@ -29,34 +29,29 @@ void Tetrimino::rotateLeft() {
 }
 
 void Tetrimino::rotateRight() {
+  int maxRowsIndex = MAX_ROWS - 1;
   int currRow = 0;
   int currCol = 0;
+  int currIndex = 0;
   int newRow = 0;
   int newCol = 0;
-  int newIndex = 2;
+  int newIndex = 0;
   int *rotateTetrimino = new int[MAX_ROWS * MAX_COLS];
-  int count = 0;
+  
   for (int i = 0; i < MAX_ROWS; i++) {
     for (int j = 0; j < MAX_COLS; j++) {
       currRow = i * MAX_ROWS;
       currCol = j;
+      currIndex = currRow + currCol;
       
-      if (currRow == 0) {
-        newCol = MAX_COLS - 1;
-        newRow = j;
-        newIndex = newRow * MAX_ROWS + newCol;
-      } else {
-        newCol = abs((MAX_COLS - 1) - currRow);
-        newRow = j;
-        newIndex = newRow * MAX_ROWS + newCol;
-      }
+      newCol = maxRowsIndex - i;  
+      newRow = j;
+      newIndex = newRow * MAX_ROWS + newCol;
       
-      rotateTetrimino[newIndex] = this->tetrimino[currRow + currCol];
-      //std::cout << newIndex << std::endl;
-      //rotateTetrimino[newIndex] = count;
-      count++;
+      rotateTetrimino[newIndex] = this->tetrimino[currIndex];
     }
   }
+  
   delete [] this->tetrimino;
   this->tetrimino = rotateTetrimino;
 	return;
@@ -132,15 +127,4 @@ void Tetrimino::printTetrimino() {
 		}
 		std::cout << std::endl;
 	}
-}
-
-int Tetrimino::wrapIndex(int index, int steps, int maxRows, int maxCols) {
-  int wrapAt = maxRows * maxCols - 1;
-  if (steps == 0) {
-    return index;
-  }
-  if (index > wrapAt) {
-    return this->wrapIndex(0, steps - 1, maxRows, maxCols);
-  }
-  return this->wrapIndex(index + 1, steps - 3, maxRows, maxCols);
 }

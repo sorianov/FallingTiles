@@ -19,5 +19,8 @@ int main() {
   t.rotateRight();
   t.printTetrimino();
   std::cout << std::endl;
+  t.rotateRight();
+  t.printTetrimino();
+  std::cout << std::endl;
 	return 0;
 }
