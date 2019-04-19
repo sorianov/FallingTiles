@@ -10,6 +10,12 @@
 *.userosscache
 *.sln.docstates
 
+# Vim Swap Files
+*.swp
+
+# Default g++ output binary
+a.out
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
