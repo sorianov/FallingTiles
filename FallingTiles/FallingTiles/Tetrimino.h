@@ -18,7 +18,7 @@ public:
 private:
     void rotate(char direction);
 	void setTetrimino(char type);
-	void initializeTetrimino(int arr[][MAX_COLS]);
-	int* tetrimino;
+	void setTetriminoValues(int arr[][MAX_COLS]);
+	int *tetrimino;
 
 };

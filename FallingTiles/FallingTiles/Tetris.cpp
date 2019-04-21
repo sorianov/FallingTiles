@@ -1,4 +1,5 @@
 #include "Tetrimino.h"
+#include "Board.h"
 
 int main() {
   /*
@@ -10,33 +11,42 @@ int main() {
 		std::cout << std::endl;
 	}
   */
-	Tetrimino t = Tetrimino('z');
+	Tetrimino *t = new Tetrimino('z');
+    Board *b = new Board();
+
+    std::cout << "Board printed: " << std::endl;
+    b->printBoard();
+    std::cout << std::endl;
+
+    /*
     std::cout << "Rotate Left:" << std::endl;
-	t.printTetrimino();
+	t->printTetrimino();
     std::cout << std::endl;
-    t.rotateLeft();
-    t.printTetrimino();
+    t->rotateLeft();
+    t->printTetrimino();
     std::cout << std::endl;
-    t.rotateLeft();
-    t.printTetrimino();
+    t->rotateLeft();
+    t->printTetrimino();
     std::cout << std::endl;
-    t.rotateLeft();
-    t.printTetrimino();
+    t->rotateLeft();
+    t->printTetrimino();
     std::cout << std::endl;
     
     std::cout << std::endl;
     
     std::cout << "Rotate Right:" << std::endl;
-	t.printTetrimino();
+	t->printTetrimino();
     std::cout << std::endl;
-    t.rotateRight();
-    t.printTetrimino();
+    t->rotateRight();
+    t->printTetrimino();
     std::cout << std::endl;
-    t.rotateRight();
-    t.printTetrimino();
+    t->rotateRight();
+    t->printTetrimino();
     std::cout << std::endl;
-    t.rotateRight();
-    t.printTetrimino();
+    t->rotateRight();
+    t->printTetrimino();
     std::cout << std::endl;
+    */
+
 	return 0;
 }
