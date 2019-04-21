@@ -54,7 +54,7 @@ void Tetrimino::rotate(char direction)
   
     for (int i = 0; i < MAX_ROWS; i++) {
         for (int j = 0; j < MAX_COLS; j++) {
-            currRow = i * MAX_ROWS;
+            currRow = i * MAX_COLS;
             currCol = j;
             currIndex = currRow + currCol;
             

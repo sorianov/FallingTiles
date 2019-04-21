@@ -13,7 +13,7 @@ Board::~Board() {
 void Board::printBoard() {
     for (int i = 0; i < NUM_ROWS; i++) {
         for (int j = 0; j < NUM_COLS; j++) {
-            std::cout << this->board[i * NUM_ROWS + j] << ", ";
+            std::cout << this->board[i * NUM_COLS + j] << ", ";
         }
         std::cout << std::endl;
     }
@@ -24,10 +24,8 @@ void Board::initializeBoard() {
     int index = 0;
     for (int i = 0; i < NUM_ROWS; i++) {
         for (int j = 0; j < NUM_COLS; j++) {
-            index = i * NUM_ROWS + j;
+            index = i * NUM_COLS + j;
             this->board[index] = count;
-            std::cout << "Setting index: " << index << std::endl;
-            count++;
         }
     }
 }
