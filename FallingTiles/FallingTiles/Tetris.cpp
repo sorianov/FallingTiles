@@ -1,7 +1,8 @@
 #include "Tetrimino.h"
 #include "Board.h"
 
-int main() {
+int main() 
+{
   /*
 	char types[7] = { 'i', 'j', 'l', 'o', 's', 't', 'z' };
 	for (int i = 0; i < 7; i++) {
