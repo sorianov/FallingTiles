@@ -36,7 +36,9 @@ void Board::initializeBoard()
 
 bool Board::addTetrimino(Tetrimino *tetrimino, int x, int y)
 {
-    this->board[x * NUM_COLS + y] = tetrimino->getCenter(); // TODO
+    //this->board[x * NUM_COLS + y] = tetrimino->getCenter(); // TODO
 
     // From center, check to see if the tetrimino can branch out
     // into its shape. If it can, return true, otherwise return false.
+    return true;
+}

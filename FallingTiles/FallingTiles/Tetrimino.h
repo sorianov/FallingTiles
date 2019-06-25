@@ -1,6 +1,5 @@
 #ifndef TETRIMINO_H
 #define TETRIMINO_H
-#endif
 
 #include <iostream>
 
@@ -23,3 +22,4 @@ class Tetrimino
     	int *tetrimino;
     
 };
+#endif

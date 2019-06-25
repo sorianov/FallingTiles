@@ -1,6 +1,5 @@
 #ifndef BOARD_H
 #define BOARD_H
-#endif
 
 #include <iostream>
 #include "Tetrimino.h"
@@ -19,3 +18,4 @@ class Board
         int *board;
         void initializeBoard();
 };
+#endif
