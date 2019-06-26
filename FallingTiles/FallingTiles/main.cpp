@@ -1,5 +1,5 @@
-#include "Tetrimino.h"
-#include "Board.h"
+#include "Tetrimino.hpp"
+#include "Board.hpp"
 
 int main() 
 {

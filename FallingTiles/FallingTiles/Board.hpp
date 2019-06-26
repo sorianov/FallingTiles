@@ -2,7 +2,7 @@
 #define BOARD_H
 
 #include <iostream>
-#include "Tetrimino.h"
+#include "Tetrimino.hpp"
 
 const int NUM_ROWS = 20;
 const int NUM_COLS = 10;

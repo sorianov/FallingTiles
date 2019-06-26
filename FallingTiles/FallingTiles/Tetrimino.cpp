@@ -1,4 +1,4 @@
-#include "Tetrimino.h"
+#include "Tetrimino.hpp"
 /**
  * Parameterized Constructor to specify shape of Tetrimino.
  */
