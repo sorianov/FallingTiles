@@ -78,6 +78,65 @@ void Tetrimino::rotate(char direction)
     
 }
 
+void Tetrimino::rotatePoints(char direction)
+{
+    int x = 0;
+    int y = 0;
+    int newX = 0;
+    int newY = 0;
+    Point pointsArray[4] = { this->p1, this->p2, this->center, this->p3 };
+    if (direction == 'l') {
+        for (int i = 0; i < 4; i++) {
+            x = pointsArray[i].getX();
+            y = pointsArray[i].getY();
+            newX = (MAX_ROWS - 1) - y;
+            newY = x;
+            pointsArray[i].setXY(newX, newY);
+        }
+    }
+    
+    if (direction == 'r') {
+        for (int i = 0; i < 4; i++) {
+            x = pointsArray[i].getX();
+            y = pointsArray[i].getY();
+            newX = y;
+            newY = (MAX_ROWS - 1) - x;
+            pointsArray[i].setXY(newX, newY);
+        }
+    }
+
+}
+
+void Tetrimino::plotPointsAndPrint()
+{
+    int x = 0;
+    int y = 0;
+    int printArr[MAX_ROWS][MAX_COLS] = {0};
+    Point pointsArray[4] = { this->p1, this->p2, this->center, this->p3 };
+    for (int i = 0; i < 4; i++) {
+        x = pointsArray[i].getX();
+        y = pointsArray[i].getY();
+        printArr[x][y] = 1;
+    }
+    
+    for (int i = 0; i < MAX_ROWS; i++) {
+        for (int j = 0; j < MAX_COLS; j++) {
+            std::cout << printArr[i][j] << ", ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+void Tetrimino::rotatePointsLeft()
+{
+    this->rotatePoints('l');
+}
+
+void Tetrimino::rotatePointsRight()
+{
+    this->rotatePoints('r');
+}
+
 /** 
  * Rotates tetrimino left by calling the private rotate function
  *
@@ -121,45 +180,73 @@ void Tetrimino::setTetrimino(char type)
     switch (type) {
     case  'i':
         arr[2][0] = 1;
+        this->p1.setXY(2, 0);
         arr[2][1] = 1;
+        this->p2.setXY(2, 1);
         arr[2][2] = 1;
+        this->center.setXY(2, 2);
         arr[2][3] = 1;
+        this->p3.setXY(2, 3);
         break;
     case 'j':
         arr[1][1] = 1;
+        this->p1.setXY(1, 1);
         arr[2][1] = 1;
+        this->p2.setXY(2, 1);
         arr[2][2] = 1;
+        this->center.setXY(2, 2);
         arr[2][3] = 1;
+        this->p3.setXY(2, 3);
         break;
     case 'l':
         arr[1][2] = 1;
+        this->p1.setXY(1, 2);
         arr[2][0] = 1;
+        this->p2.setXY(2, 0);
         arr[2][1] = 1;
+        this->center.setXY(2, 1);
         arr[2][2] = 1;
+        this->p3.setXY(2, 2);
         break;
     case 'o':
         arr[1][1] = 1;
+        this->p1.setXY(1, 1);
         arr[1][2] = 1;
+        this->p2.setXY(1, 2);
         arr[2][1] = 1;
+        this->center.setXY(2, 1);
         arr[2][2] = 1;
+        this->p3.setXY(2, 2);
         break;
     case 's':
         arr[1][1] = 1;
+        this->p1.setXY(1, 1);
         arr[1][2] = 1;
+        this->p2.setXY(1, 2);
         arr[2][0] = 1;
+        this->center.setXY(2, 0);
         arr[2][1] = 1;
+        this->p3.setXY(2, 1);
         break;
     case 't':
         arr[1][1] = 1;
+        this->p1.setXY(1, 1);
         arr[2][0] = 1;
+        this->p2.setXY(2, 0);
         arr[2][1] = 1;
+        this->center.setXY(2, 1);
         arr[2][2] = 1;
+        this->p3.setXY(2, 2);
         break;
     case 'z':
         arr[1][0] = 1;
+        this->p1.setXY(1, 0);
         arr[1][1] = 1;
+        this->p2.setXY(1, 1);
         arr[2][1] = 1;
+        this->center.setXY(2, 1);
         arr[2][2] = 1;
+        this->p3.setXY(2, 2);
         break;
     }
     this->setTetriminoValues(arr);

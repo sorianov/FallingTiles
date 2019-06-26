@@ -1,5 +1,6 @@
 #include "Tetrimino.hpp"
 #include "Board.hpp"
+#include "Point.hpp"
 
 int main() 
 {
@@ -12,12 +13,12 @@ int main()
 		std::cout << std::endl;
 	}
   */
-	Tetrimino *t = new Tetrimino('z');
-    Board *b = new Board();
+	/* Tetrimino *t = new Tetrimino('z'); */
+    /* Board *b = new Board(); */
 
-    std::cout << "Board printed: " << std::endl;
-    b->printBoard();
-    std::cout << std::endl;
+    /* std::cout << "Board printed: " << std::endl; */
+    /* b->printBoard(); */
+    /* std::cout << std::endl; */
 
     /*
     std::cout << "Rotate Left:" << std::endl;
@@ -48,6 +49,34 @@ int main()
     t->printTetrimino();
     std::cout << std::endl;
     */
+    Tetrimino t_p = Tetrimino(); 
+	t_p.plotPointsAndPrint();
+    std::cout << "Rotate Left:" << std::endl;
+    std::cout << std::endl;
+    t_p.rotatePointsLeft();
+    t_p.plotPointsAndPrint();
+    std::cout << std::endl;
+    t_p.rotatePointsLeft();
+    t_p.plotPointsAndPrint();
+    std::cout << std::endl;
+    t_p.rotatePointsLeft();
+    t_p.plotPointsAndPrint();
+    std::cout << std::endl;
+    
+    std::cout << std::endl;
+    
+    std::cout << "Rotate Right:" << std::endl;
+	t_p.plotPointsAndPrint();
+    std::cout << std::endl;
+    t_p.rotatePointsRight();
+    t_p.plotPointsAndPrint();
+    std::cout << std::endl;
+    t_p.rotatePointsRight();
+    t_p.plotPointsAndPrint();
+    std::cout << std::endl;
+    t_p.rotatePointsRight();
+    t_p.plotPointsAndPrint();
+    std::cout << std::endl;
 
 	return 0;
 }
