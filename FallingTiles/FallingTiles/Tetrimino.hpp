@@ -19,6 +19,7 @@ class Tetrimino
     	void rotatePointsRight();
     	void printTetrimino();
         void plotPointsAndPrint(); // separate later
+        void printPointsInfo();
     private:
         void rotate(char direction);
         void rotatePoints(char direction);

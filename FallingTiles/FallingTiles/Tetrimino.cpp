@@ -5,6 +5,10 @@
 Tetrimino::Tetrimino(char type) 
 {
     this->tetrimino = new int[MAX_ROWS * MAX_COLS];
+    this->p1 = Point();
+    this->p2 = Point();
+    this->center = Point();
+    this->p3 = Point();
 
     this->setTetrimino(type);
 }
@@ -15,6 +19,11 @@ Tetrimino::Tetrimino(char type)
 Tetrimino::Tetrimino() 
 {
     this->tetrimino = new int[MAX_ROWS * MAX_COLS];
+    this->p1 = Point();
+    this->p2 = Point();
+    this->center = Point();
+    this->p3 = Point();
+
 
     this->setTetrimino('i');
 }
@@ -78,6 +87,19 @@ void Tetrimino::rotate(char direction)
     
 }
 
+void Tetrimino::printPointsInfo()
+{
+    int x = 0;
+    int y = 0;
+    Point pointsArray[4] = { this->p1, this->p2, this->center, this->p3 };
+    for (int i = 0; i < 4; i++) {
+        x = pointsArray[i].getX();
+        y = pointsArray[i].getY();
+        std::cout << "Point info for: " << i << "\t " << x << ", " << y << std::endl;
+    }
+
+}
+
 void Tetrimino::rotatePoints(char direction)
 {
     int x = 0;
@@ -86,25 +108,57 @@ void Tetrimino::rotatePoints(char direction)
     int newY = 0;
     Point pointsArray[4] = { this->p1, this->p2, this->center, this->p3 };
     if (direction == 'l') {
-        for (int i = 0; i < 4; i++) {
-            x = pointsArray[i].getX();
-            y = pointsArray[i].getY();
-            newX = (MAX_ROWS - 1) - y;
-            newY = x;
-            pointsArray[i].setXY(newX, newY);
-        }
+        x = this->p1.getX();
+        y = this->p1.getY();
+        newX = (MAX_ROWS - 1) - y;
+        newY = x;
+        this->p1.setXY(newX, newY);
+       
+        x = this->p2.getX();
+        y = this->p2.getY();
+        newX = (MAX_ROWS - 1) - y;
+        newY = x;
+        this->p2.setXY(newX, newY);
+       
+        x = this->center.getX();
+        y = this->center.getY();
+        newX = (MAX_ROWS - 1) - y;
+        newY = x;
+        this->center.setXY(newX, newY);
+
+        x = this->p3.getX();
+        y = this->p3.getY();
+        newX = (MAX_ROWS - 1) - y;
+        newY = x;
+        this->p3.setXY(newX, newY);
     }
     
     if (direction == 'r') {
-        for (int i = 0; i < 4; i++) {
-            x = pointsArray[i].getX();
-            y = pointsArray[i].getY();
-            newX = y;
-            newY = (MAX_ROWS - 1) - x;
-            pointsArray[i].setXY(newX, newY);
-        }
-    }
+        x = this->p1.getX();
+        y = this->p1.getY();
+        newX = y;
+        newY = (MAX_ROWS - 1) - x;
+        this->p1.setXY(newX, newY);
 
+        x = this->p2.getX();
+        y = this->p2.getY();
+        newX = y;
+        newY = (MAX_ROWS - 1) - x;
+        this->p2.setXY(newX, newY);
+
+        x = this->center.getX();
+        y = this->center.getY();
+        newX = y;
+        newY = (MAX_ROWS - 1) - x;
+        this->center.setXY(newX, newY);
+
+        x = this->p3.getX();
+        y = this->p3.getY();
+        newX = y;
+        newY = (MAX_ROWS - 1) - x;
+        this->p3.setXY(newX, newY);
+
+    }
 }
 
 void Tetrimino::plotPointsAndPrint()
@@ -187,6 +241,7 @@ void Tetrimino::setTetrimino(char type)
         this->center.setXY(2, 2);
         arr[2][3] = 1;
         this->p3.setXY(2, 3);
+        this->printPointsInfo();
         break;
     case 'j':
         arr[1][1] = 1;
