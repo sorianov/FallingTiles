@@ -12,6 +12,7 @@ class Point
         int setX(int x);
         int setY(int y);
         void setXY(int x, int y);
+        bool isEmpty();
     private:
         int x;
         int y;

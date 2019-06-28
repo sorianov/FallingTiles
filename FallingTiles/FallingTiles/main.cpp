@@ -49,7 +49,7 @@ int main()
     t->printTetrimino();
     std::cout << std::endl;
     */
-    Tetrimino t_p = Tetrimino(); 
+    Tetrimino t_p = Tetrimino('z'); 
     t_p.plotPointsAndPrint();
     std::cout << "Rotate Left:" << std::endl;
     std::cout << std::endl;
