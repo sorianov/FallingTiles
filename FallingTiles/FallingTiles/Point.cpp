@@ -2,58 +2,46 @@
 
 Point::Point()
 {
-    this->x = -1;
-    this->y = -1;
-    // if this constructor is called, we'll assume
-    // that it's an empty point. The reasoning is that
-    // (0,0) is a valid point even though that's our default.
-    /* this->empty = true; */
+    x = -1;
+    y = -1;
 }
 
-Point::Point(int x, int y)
+Point::Point(int x_, int y_)
 {
-    this->x = x;
-    this->y = y;
-    // We had to have recieved some values
-    // so we can say this Point is not empty.
-    /* this->empty = false; */
+    x = x_;
+    y = y_;
 }
 
-Point::~Point() {}
-
-int Point::getX()
+void Point::getX(int &x_)
 {
-    return this->x;
+    x_ = x;
 }
 
-int Point::getY()
+void Point::getY(int &y_)
 {
-    return this->y;
+    y_ = y;
 }
 
-int Point::setX(int x)
+void Point::setX(int x_)
 {
-    this->x = x;
-    return this->x;
+    x = x_;
 }
 
-int Point::setY(int y)
+void Point::setY(int y_)
 {
-    this->y = y;
-    return this->y;
+    y = y_;
 }
 
-void Point::setXY(int x, int y)
+void Point::setXY(int x_, int y_)
 {
-    this->x = x;
-    this->y = y;
-    return;
+    x = x_;
+    y = y_;
 }
 
-bool Point::isEmpty()
+void Point::isEmpty(bool& empty)
 {
     // We'll report empty if the user has left a value
     // unset. That'll teach 'em.
-    return (this->x == -1 || this->y == -1);
+    empty = (x == -1 || y == -1);
 }
 

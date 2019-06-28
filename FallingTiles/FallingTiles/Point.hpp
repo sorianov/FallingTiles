@@ -5,14 +5,13 @@ class Point
 {
     public:
         Point();
-        Point(int x, int y);
-        ~Point();
-        int getX();
-        int getY();
-        int setX(int x);
-        int setY(int y);
-        void setXY(int x, int y);
-        bool isEmpty();
+        Point(int, int);
+        void getX(int&);
+        void getY(int&);
+        void setX(int);
+        void setY(int);
+        void setXY(int, int);
+        void isEmpty(bool&);
     private:
         int x;
         int y;

@@ -1,20 +1,20 @@
-fallingtiles : main.o Tetrimino.o Board.o Point.o PointCollection.o
-	g++ -o fallingtiles main.o Tetrimino.o Board.o Point.o PointCollection.o
+fallingtiles : main.o Tetrimino.o Board.o Point.o PointGrid.o
+	g++ -o fallingtiles main.o Tetrimino.o Board.o Point.o PointGrid.o
 
 main.o : main.cpp Tetrimino.hpp Board.hpp
-	g++ -c main.cpp
+	g++ -c -ggdb main.cpp
 
 Tetrimino.o : Tetrimino.cpp Tetrimino.hpp
-	g++ -c Tetrimino.cpp
+	g++ -c -ggdb Tetrimino.cpp
 
 Board.o : Board.cpp Board.hpp Tetrimino.hpp
-	g++ -c Board.cpp
+	g++ -c -ggdb Board.cpp
 
 Point.o : Point.cpp Point.hpp
-	g++ -c Point.cpp
+	g++ -c -ggdb Point.cpp
 
-PointCollection.o : PointCollection.cpp PointCollection.hpp Point.hpp
-	g++ -c PointCollection.cpp
+PointGrid.o : PointGrid.cpp PointGrid.hpp Point.hpp
+	g++ -c -ggdb PointGrid.cpp
 
 clean :
 	rm *.o
