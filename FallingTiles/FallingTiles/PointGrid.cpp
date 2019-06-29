@@ -134,7 +134,6 @@ int** PointGrid::initGrid() {
 void PointGrid::deallocGrid(int** grid) {
     for (int i = 0; i < numRows; i++) {
         delete [] grid[i];
-        delete [] grid[i];
         grid[i] = nullptr;
     }
 
