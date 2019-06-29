@@ -116,10 +116,36 @@ bool PointGrid::removePoint(Point p)
     return true; // TODO
 }
 
-// TODO: Check bounds?
+int** PointGrid::initGrid() {
+    int** grid = nullptr;
+    grid = new int* [numRows];
+    for (int i = 0; i < numRows; i++) {
+        grid[i] = new int[numCols];
+    }
+
+    for (int i = 0; i < numRows; i++) {
+        for (int j = 0; j < numCols; j++) {
+            grid[i][j] = 0;
+        }
+    }
+    return grid;
+}
+
+void PointGrid::deallocGrid(int** grid) {
+    for (int i = 0; i < numRows; i++) {
+        delete [] grid[i];
+        delete [] grid[i];
+        grid[i] = nullptr;
+    }
+
+    delete [] grid;
+    grid = nullptr;
+}
+
+
 void PointGrid::printGrid()
 {
-    int board[numRows][numCols] {};
+    int** board = initGrid();
     int x = 0;
     int y = 0;
     Point p;
@@ -137,4 +163,5 @@ void PointGrid::printGrid()
         }
         std::cout << std::endl;
     }
+    deallocGrid(board);
 }

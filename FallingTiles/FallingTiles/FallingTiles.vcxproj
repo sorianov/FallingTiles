@@ -22,11 +22,13 @@
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="PointGrid.cpp" />
     <ClCompile Include="Tetrimino.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.hpp" />
     <ClInclude Include="Point.hpp" />
+    <ClInclude Include="PointGrid.hpp" />
     <ClInclude Include="Tetrimino.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

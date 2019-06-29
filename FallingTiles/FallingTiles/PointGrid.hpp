@@ -19,6 +19,8 @@ class PointGrid {
         int numCols; // Number of columns in our 'grid'.
         int maxPoints; // Maximum number of points we can store.
         int currentNumPoints; // Current number of Points being stored.
+        int** initGrid(); // Initialize 2D array.
+        void deallocGrid(int**); // Dealloc pointer of pointers.
         Point *pointStorage; // Array we'll use to store our Points.
         void rotatePoints(char direction);
 
