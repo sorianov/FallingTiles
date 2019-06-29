@@ -116,8 +116,7 @@ bool PointGrid::removePoint(Point p)
     return true; // TODO
 }
 
-int** PointGrid::initGrid() {
-    int** grid = nullptr;
+void PointGrid::initGrid(int**& grid) {
     grid = new int* [numRows];
     for (int i = 0; i < numRows; i++) {
         grid[i] = new int[numCols];
@@ -128,10 +127,9 @@ int** PointGrid::initGrid() {
             grid[i][j] = 0;
         }
     }
-    return grid;
 }
 
-void PointGrid::deallocGrid(int** grid) {
+void PointGrid::deallocGrid(int**& grid) {
     for (int i = 0; i < numRows; i++) {
         delete [] grid[i];
         grid[i] = nullptr;
@@ -144,10 +142,11 @@ void PointGrid::deallocGrid(int** grid) {
 
 void PointGrid::printGrid()
 {
-    int** board = initGrid();
+    int** board = nullptr;
     int x = 0;
     int y = 0;
     Point p;
+    initGrid(board);
 
     for (int i = 0; i < maxPoints; i++) {
         p = pointStorage[i];
