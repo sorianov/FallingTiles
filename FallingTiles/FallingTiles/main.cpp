@@ -1,32 +1,36 @@
 #include <iostream>
-#include <iomanip>
 #include "Tetrimino.hpp"
-#include "Point.hpp"
+#include "Board.hpp"
 
-void init_tet_print(char type)
+void print_tet_init(char type)
 {
-   Tetrimino t = Tetrimino(type);
-   t.printTetrimino();
-   t.rotateRight();
-   std::cout << std::endl;
-   t.printTetrimino();
-   t.rotateRight();
-   std::cout << std::endl;
-   t.printTetrimino();
-   t.rotateRight();
-   std::cout << std::endl;
-   t.printTetrimino();
+    Tetrimino t = Tetrimino(type);
+    std::cout << type << ": " << std::endl;
+    t.printTetrimino();
+    t.rotateRight();
+    std::cout << std::endl;
+    t.printTetrimino();
+    t.rotateRight();
+    std::cout << std::endl;
+    t.printTetrimino();
+    t.rotateRight();
+    std::cout << std::endl;
+    t.printTetrimino();
+    t.rotateRight();
+    std::cout << std::endl;
 }
 
 int main()
 {
     char types[7] = { 'i', 'j', 'l', 'o', 's', 't', 'z' };
     for (int i = 0; i < 7; i++) {
-        init_tet_print(types[i]);
-        std::cout << std::endl;
-        std::cout << std::endl;
+        print_tet_init(types[i]);
         std::cout << std::endl;
     }
+
+    Board b = Board();
+
+    b.printBoard();
 
     return 0;
 }

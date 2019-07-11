@@ -152,7 +152,11 @@ void PointGrid::printGrid()
         p = pointStorage[i];
         p.getX(x);
         p.getY(y);
-        board[x][y] = 1;
+        if (i == 2) {
+            board[x][y] = 9;
+        } else {
+            board[x][y] = 1;
+        }
     }
 
     for (int i = 0; i < numRows; i++) {

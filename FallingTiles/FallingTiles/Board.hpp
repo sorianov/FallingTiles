@@ -1,7 +1,6 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#include <iostream>
 #include "Tetrimino.hpp"
 
 const int NUM_ROWS = 20;
@@ -15,7 +14,8 @@ class Board
         void printBoard();
         bool addTetrimino(Tetrimino *tetrimino, int x, int y);
     private:
-        int *board;
-        void initializeBoard();
+        int **board;
+        void initializeBoard(int**&);
+        void deallocBoard(int**&);
 };
 #endif

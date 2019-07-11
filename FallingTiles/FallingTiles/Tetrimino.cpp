@@ -52,7 +52,8 @@ void Tetrimino::rotateRight()
  * Creates a two dimensional array initialized to 0. Assigns specific
  * coordinates to 1 in order to set the desired Tetrimino shape. Then calls
  * setTetriminoValues with the created array as a parameter in order to
- * initialize the tetrimino pointer.
+ * initialize the tetrimino pointer. Initialization order matters if you care
+ * what the 'center' is.
  *
  * @param char type The tetrimino shape. Should be one of the following:
  *                  i,j,l,o,s,t,z.
@@ -89,8 +90,8 @@ void Tetrimino::setTetrimino(char type)
     case 's':
         tetrimino.addPoint(1, 1);
         tetrimino.addPoint(1, 2);
-        tetrimino.addPoint(2, 0);
         tetrimino.addPoint(2, 1);
+        tetrimino.addPoint(2, 0);
         break;
     case 't':
         tetrimino.addPoint(1, 1);
